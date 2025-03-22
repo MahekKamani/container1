@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: container1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: container1
+  template:
+    metadata:
+      labels:
+        app: container1
+    spec:
+      containers:
+      - name: container1
+        image: us-central1-docker.pkg.dev/terraform-gke-test-453503/assignment3/container1:latest
+        volumeMounts:
+        - mountPath: /mahek_PV_dir
+          name: pvc-claim
+        ports:
+        - containerPort: 6000
+      volumes:
+      - name: pvc-claim
+        persistentVolumeClaim:
+          claimName: pvc-claim
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: container1-service
+spec:
+  selector:
+    app: container1
+  ports:
+    - protocol: TCP
+      port: 6000
+      targetPort: 6000
+  type: LoadBalancer
