@@ -9,11 +9,10 @@ const PORT = 6000;
 
 // Middleware to parse JSON request bodies.
 app.use(express.json());
-console.log("123");
 // POST endpoint
 app.post('/calculate', async (req, res) => {
     const { file, product } = req.body;
-
+    console.log("test");
     // Validate input
     if (!file) {
         return res.status(400).json({ file: null, error: 'Invalid JSON input.' });
