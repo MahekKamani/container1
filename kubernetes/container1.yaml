@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: container1
-        image: us-central1-docker.pkg.dev/terraform-gke-test-453503/assignment3/container1:latest
+        image: us-central1-docker.pkg.dev/terraform-gke-test-453503/container1/container1:latest
         volumeMounts:
         - mountPath: /mahek_PV_dir
           name: pvc-claim
