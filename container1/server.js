@@ -9,7 +9,7 @@ const PORT = 6000;
 
 // Middleware to parse JSON request bodies.
 app.use(express.json());
-console.log("1");
+console.log("123");
 // POST endpoint
 app.post('/calculate', async (req, res) => {
     const { file, product } = req.body;
