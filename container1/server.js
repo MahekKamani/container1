@@ -12,7 +12,7 @@ app.use(express.json());
 // POST endpoint
 app.post('/calculate', async (req, res) => {
     const { file, product } = req.body;
-    console.log("test");
+    console.log("1");
     // Validate input
     if (!file) {
         return res.status(400).json({ file: null, error: 'Invalid JSON input.' });
